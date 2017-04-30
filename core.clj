@@ -42,6 +42,13 @@
    double *outputs = pointer::to_pointer<double>(out);
    genann_train(ann, inputs, outputs, number::to<real_t>(learning_rate));")
 
+(defn train-vector [nn in out learning-rate]
+  "genann *ann = nn.cast<genann_o>()->network();
+   genann_train(ann, 
+                value<std::vector<double>>::to_value(in).data(),
+                value<std::vector<double>>::to_value(out).data(),
+                number::to<real_t>(learning_rate));")
+
 (defn run [nn in]
   "genann *ann = nn.cast<genann_o>()->network();
 
