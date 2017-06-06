@@ -75,6 +75,14 @@
    for(number_t i = --size; i >= 0; i--)
      __result = runtime::cons(obj<number>(ret[i]),__result);")
 
+(defn run-vector [nn in]
+  "genann *ann = nn.cast<genann_o>()->network();
+
+   double const *ret = genann_run(ann, value<std::vector<double>>::to_value(in).data());
+   number_t size = nn.cast<genann_o>()->num_outputs();
+   for(number_t i = --size; i >= 0; i--)
+     __result = runtime::cons(obj<number>(ret[i]),__result);")
+
 (defn write [nn f]
   "genann *ann = nn.cast<genann_o>()->network();
    FILE *file = fopen(string::to<std::string>(f).c_str(), \"w\");
