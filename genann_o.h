@@ -8,12 +8,12 @@ class genann_o : public object {
 public:
   size_t type() const { return runtime::type::genann_o; }
 
-  bool equals(var o) const {
+  bool equals(var const & o) const {
     return (_network == o.cast<genann_o>()->network());
   }
 
 #if !defined(FERRET_DISABLE_STD_OUT)
-  var stream_console() const {
+  void stream_console() const {
     runtime::print("genann<");
     runtime::print(num_inputs);
     runtime::print(" ");
@@ -23,7 +23,6 @@ public:
     runtime::print(" ");
     runtime::print(_num_outputs);
     runtime::print(">");
-    return nil();
   }
 #endif
 
