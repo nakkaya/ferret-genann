@@ -1,4 +1,4 @@
-class genann_o : public object_t {
+class genann_o : public object {
   genann *_network;
   number_t num_inputs;
   number_t num_hidden_layers;
