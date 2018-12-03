@@ -6,11 +6,8 @@ class genann_o : public object {
   number_t _num_outputs;
 
 public:
-  size_t type() const { return runtime::type::genann_o; }
-
-  bool equals(var const & o) const {
-    return (_network == o.cast<genann_o>()->network());
-  }
+  
+  type_t type() const final { return type_id<genann_o>; }
 
 #if !defined(FERRET_DISABLE_STD_OUT)
   void stream_console() const {
